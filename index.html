@@ -1,0 +1,378 @@
+<?php
+session_start();
+$connect = mysqli_connect("localhost", "root", "", "blendedloops");
+
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blended Loops | By Marileta</title>
+    <link rel="icon" href="images/waqsd.png">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oswald&family=Raleway:wght@300&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/header.css" />
+    <link rel="stylesheet" href="css/hero.css" />
+    <link rel="stylesheet" href="css/albums.css" />
+    <link rel="stylesheet" href="css/footer.css" />
+    <link rel="stylesheet" href="css/media-queries.css" />
+  </head>
+  <body>
+    <!-- HEADER -->
+    <header>
+      <div class="header-container">
+        <div class="header-logo">
+          <img src="images/waqsd.png" />
+        </div>
+        <!-- This is the menu that will be shown on mobile devices-->
+        <nav class="nav-mobile">
+          <!-- Profile -->
+          <div class="profile">
+            <svg viewBox="0 0 1024 1024" class="profile-icon">
+              <path
+                d="M730.06 679.64q-45.377 53.444-101.84 83.443t-120 29.999q-64.032 0-120.75-30.503t-102.6-84.451q-40.335 13.109-77.645 29.747t-53.948 26.722l-17.142 10.084Q106.388 763.84 84.96 802.41t-21.428 73.107 25.461 59.242 60.754 24.705h716.95q35.293 0 60.754-24.705t25.461-59.242-21.428-72.603-51.679-57.225q-6.554-4.033-18.907-10.84t-51.427-24.453-79.409-30.755zm-221.84 25.72q-34.285 0-67.561-14.873t-60.754-40.335-51.175-60.502-40.083-75.124-25.461-84.451-9.075-87.728q0-64.032 19.915-116.22t54.452-85.964 80.67-51.931 99.072-18.151 99.072 18.151 80.67 51.931 54.452 85.964 19.915 116.22q0 65.04-20.167 130.58t-53.948 116.72-81.426 83.443-98.568 32.268z"
+              ></path>
+            </svg>
+          </div>
+          <!-- Hamburger menu -->
+          <input type="checkbox" class="toggler" />
+          <div class="hamburger-menu"><div></div></div>
+          <div class="menu">
+            <div class="background-overlay"></div>
+            <div class="menu-overlay">
+              <ul>
+                <li><a href="file:///C:/Users/30694/Documents/Programming/Blended%20Loops%20V2/index.html">HOME</a></li>
+                <li><a href="file:///C:/Users/30694/Documents/Programming/Blended%20Loops%20V2/Boutique.html">BOUTIQUE</a></li>
+                <li><a href="file:///C:/Users/30694/Documents/Programming/Blended%20Loops%20V2/About%20Us.html">ABOUT US</a></li>
+                <li><a href="file:///C:/Users/30694/Documents/Programming/Blended%20Loops%20V2/Contact%20Us.html">CONTACT US</a></li>
+                <li role="separator"></li>
+                <li><a href="#">My Cart</a></li>
+              </ul>
+              <div class="menu-overlay-logo">
+                <img src="images/waqsd.png" />
+              </div>
+            </div>
+          </div>
+        </nav>
+        <!-- This is the menu that will be shown on Desktop -->
+        <nav class="nav-desktop">
+          <!-- Site menu -->
+          <ul>
+            <li><a href="file:///C:/Users/30694/Documents/Programming/Blended%20Loops%20V2/index.html">HOME </a></li>
+            <link rel="stylesheet" href="css/dropdown.css"/>
+              <div class="dropdown">
+                <button class="dropbtn"><a href="file:///C:/Users/30694/Documents/Programming/Blended%20Loops%20V2/Boutique.html">BOUTIQUE</a>
+                  <i class="fa fa-caret-down" aria-hidden="true"></i>
+                  </button>
+                  <div class="dropdown-content">
+                    <a href="file:///C:/Users/30694/Documents/Programming/Blended%20Loops%20V2/Scrunchies.html">Scrunchies</a>
+                    <a href="">Hair Accessories</a>
+                    <a href="">Accessory Sets</a>
+                    </div>
+              </div>
+            <li><a href="file:///C:/Users/30694/Documents/Programming/Blended%20Loops%20V2/About%20Us.html">ABOUT US</a></li>
+            <li><a href="file:///C:/Users/30694/Documents/Programming/Blended%20Loops%20V2/Contact%20Us.html">CONTACT US</a></li>
+            <li role="separator"></li>
+          </ul>
+          <!-- Profile menu -->
+          <div class="profile-container">
+            <input type="checkbox" class="dropdown-menu-toggler"/>
+            <div class="dropdown-menu">
+              <ul>
+                <li><a href="#">My Cart</a></li>
+              </ul>
+            </div>
+            <div class="profile">
+              <svg viewBox="0 0 1024 1024" class="profile-icon">
+                <path
+                  d="M730.06 679.64q-45.377 53.444-101.84 83.443t-120 29.999q-64.032 0-120.75-30.503t-102.6-84.451q-40.335 13.109-77.645 29.747t-53.948 26.722l-17.142 10.084Q106.388 763.84 84.96 802.41t-21.428 73.107 25.461 59.242 60.754 24.705h716.95q35.293 0 60.754-24.705t25.461-59.242-21.428-72.603-51.679-57.225q-6.554-4.033-18.907-10.84t-51.427-24.453-79.409-30.755zm-221.84 25.72q-34.285 0-67.561-14.873t-60.754-40.335-51.175-60.502-40.083-75.124-25.461-84.451-9.075-87.728q0-64.032 19.915-116.22t54.452-85.964 80.67-51.931 99.072-18.151 99.072 18.151 80.67 51.931 54.452 85.964 19.915 116.22q0 65.04-20.167 130.58t-53.948 116.72-81.426 83.443-98.568 32.268z"
+                ></path>
+              </svg>
+            </div>
+            <ul>
+              <li>Profile</li>
+              <li>
+                <svg viewBox="0 0 1024 1024" class="profile-arrow">
+                  <path
+                    d="M476.455 806.696L95.291 425.532Q80.67 410.911 80.67 390.239t14.621-34.789 35.293-14.117 34.789 14.117L508.219 698.8l349.4-349.4q14.621-14.117 35.293-14.117t34.789 14.117 14.117 34.789-14.117 34.789L546.537 800.142q-19.159 19.159-38.318 19.159t-31.764-12.605z"
+                  ></path>
+                </svg>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-container">
+        <div class="hero-content">
+          <h1 class="hero-title">Blended Loops</h1>
+          <img src="images/waqsd.png">
+          <button class="hero-button">✨Silk Collection✨</button>
+          <div class="terms">
+            <span>*</span>
+            <a href="file:///C:/Users/30694/Documents/Programming/Blended%20Loops%20V2/Terms%20and%20conditions.html" class="hero-terms-link">Terms and conditions</a
+            ><span>apply.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ALBUMS -->
+    <section class="albums">
+      <div class="albums-container">
+        <div class="albums-content">
+          <h2>Treat Yourself as Someone You Genuinely Love</h2>
+          <p>Buy Now</p>
+          <button><a href="file:///C:/Users/30694/Documents/Programming/Blended%20Loops%20V2/Boutique.html">BOUTIQUE</a></button>
+          <Br>
+
+            <br> 
+
+          <h2>Best Choices</h2>
+        </div>
+
+        <BR>
+
+          <BR>
+        <div class="albums-cards-container">
+          <!-- KOKKINO -->
+          <div class="album">
+            <img src="images/red whole.jpg" style="width:100%"/>
+            <div class="album-info">
+              <h2>Red Scrunchies</h2>
+              <h4><STRONG>24.99€</STRONG></h4>
+              <a href="">ADD TO CART</a>
+            </div>
+          </div>
+          <!-- pink -->
+          <div class="album">
+            <img src="images/pink whole.jpg" style="width:100%" />
+            <div class="album-info">
+              <h2>Pink Scrunchies</h2>
+              <h4>24.99€ <strong>HOT DEAL</strong></h4>
+              <a href="">ADD TO CART</a>
+            </div>
+          </div>
+          <!-- bLUE  -->
+          <div class="album">
+            <img src="images/blue whole.jpg" style="width:100%"/>
+            <div class="album-info">
+              <h2>Blue Scrunchies</h2>
+              <h4><strong>24.99€</strong></h4>
+              <a href="">ADD TO CART</a>
+            </div>
+          </div>
+          <!-- Gplden  -->
+           <div class="album">
+             <img src="images/green 1.jpg" />
+               <div class="album-info">
+                 <h2>Gold Scrunchie</h2>
+                 <h4><strong>6€</strong></h4>
+                <a href="">ADD TO CART</a>
+              </div>
+            </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Photos-->
+<div>
+  <link rel="stylesheet" href="css/slider.css"/>
+      </head>
+      <body>
+      
+      <div class="slideshow-container">
+      
+      <div class="mySlides fade">
+        <div class="numbertext">1 / 3</div>
+        <img src="images/green 1.jpg" style="width:100%">
+        <div class="text">Gold Scrunchie</div>
+      </div>
+      
+      <div class="mySlides fade">
+        <div class="numbertext">2 / 3</div>
+        <img src="images/blue whole.jpg" style="width:100%">
+        <div class="text">Blue Scrunchie</div>
+      </div>
+      
+      <div class="mySlides fade">
+        <div class="numbertext">3 / 3</div>
+        <img src="images/pink whole.jpg" style="width:100%">
+        <div class="text">Pink Scrunchie</div>
+      </div>
+      
+      </div>
+      <br>
+      
+      <div style="text-align:center">
+        <span class="dot"></span> 
+        <span class="dot"></span> 
+        <span class="dot"></span> 
+      </div>
+      <script>
+
+var slideIndex = 0;
+showSlides();
+
+function showSlides() {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("dot");
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";  
+  }
+  slideIndex++;
+  if (slideIndex > slides.length) {slideIndex = 1}    
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " active";
+  setTimeout(showSlides, 2000); // Change image every 2 seconds
+}
+      </script>
+
+      </body>
+  </div>
+</div>
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+   <!--VIDEO-->
+    <video src="images/LARIOSETA - Italian silk scarves & fashion accessories brand - Official Video.mp4" height="1070" autoplay muted loop></video>
+    <div class="buttons">
+    </video>
+    </div>
+
+      <!--STAY IN TOUCH-->
+
+      <style>
+        body {font-family: 'Raleway', sans-serif;}
+        
+        form {
+          border: 3px solid #808080;
+          font-family: 'Raleway', sans-serif;
+        }
+        
+        .container {
+          padding: 20px;
+          background-color: #f1f1f1;
+        }
+        
+        input[type=text], input[type=submit] {
+          width: 100%;
+          padding: 12px;
+          margin: 8px 0;
+          display: inline-block;
+          border: 1px solid #ccc;
+          box-sizing: border-box;
+        }
+        
+        input[type=checkbox] {
+          margin-top: 16px;
+        }
+        
+        input[type=submit] {
+          background-color: #fdc200;
+          color: 808080;
+          border: none;
+        }
+        
+        input[type=submit]:hover {
+          opacity: 0.8;
+        }
+        </style>
+        <body>
+        
+        
+        <form action="/action_page.php">
+          <div class="container">
+            <h2>Let's stay in touch!</h2>
+            <p>Subscribe to our Newsletter.</p>
+          </div>
+        
+          <div class="container" style="background-color:808080">
+            <input type="text" placeholder="Name" name="name" required>
+            <input type="text" placeholder="Your Email address" name="mail" required>
+            <label>
+              <input type="checkbox" checked="checked" name="subscribe"> Daily Newsletter
+            </label>
+          </div>
+        
+          <div class="container">
+            <input type="submit" value="Subscribe">
+          </div>
+        </form>
+        
+        </body>
+      
+  
+
+    <!-- FOOTER -->
+    <footer>
+      <nav class="footer-nav">
+        <div class="logo-footer">
+          <a href="#"><img src="images/waqsd.png" /></a>
+        </div>
+        <div class="top-links">
+          <div class="company-links">
+            <ul>
+              <li>COMPANY</li>
+              <li><a href="file:///C:/Users/30694/Documents/Programming/Blended%20Loops%20V2/About%20Us.html">About Us</a></li>
+              <li><a href="file:///C:/Users/30694/Documents/Programming/Blended%20Loops%20V2/Contact%20Us.html">Contact Us</a></li>
+              <li><a href="">Meet The Team</a></li>
+            </ul>
+          </div>
+          <div class="communities-links">
+            <ul>
+              <li>COMMUNITIES</li>
+              <li><a href="file:///C:/Users/30694/Documents/Programming/Blended%20Loops%20V2/Developers.html">Developers</a></li>
+            </ul>
+          </div>
+          <div class="useful-links">
+            <ul>
+              <li>USEFUL LINKS</li>
+              <li><a href="#">Free Mobile App Soon...</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="social-icons">
+          <ul>
+            <li>
+              <a href="https://www.instagram.com/blended.loops/?hl=el"><img src="images/instagram-icon.svg" /></a>
+            </li>
+            <li>
+              <a href="#"><img src="images/twitter-icon.svg" /></a>
+            </li>
+            <li>
+              <a href="https://www.facebook.com/blended.loops"><img src="images/facebook-icon.svg" /></a>
+            </li>
+          </ul>
+        </div>
+        <div class="country">
+          <a href="#"><span>GR</span><img src="IMAGES/greece.svg" /></a>
+        </div>
+        <div class="bottom-links">
+          <ul>
+            <li><a href="#">FAQ</a></li>
+            <li><a href="#">Shipping Policy</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+          </ul>
+          <span>&copy; 2021 Blended Loops</span>
+        </div>
+      </nav>
+    </footer>
+  </body>
+  <script src="./js/script.js"></script>
+
+</html>
